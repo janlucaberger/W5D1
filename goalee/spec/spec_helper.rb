@@ -117,3 +117,11 @@ def make_goal(options = {
   check('Completed') if options[:completed] == true
   click_on 'New Goal'
 end
+
+def make_goal_comment(options = {
+  body: "Nice goal!"
+  })
+
+  fill_in 'Body', with: options[:body]
+  click_on 'Save Comment'
+end

@@ -5,4 +5,8 @@ class Goal < ApplicationRecord
 
   belongs_to :user
 
+  has_many :comments,
+    foreign_key: :goal_id,
+    class_name: :GoalComment
+
 end

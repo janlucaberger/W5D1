@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_many :goals
 
+  has_many :comments,
+    foreign_key: :author_id,
+    class_name: :UserComment
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)
