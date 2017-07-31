@@ -94,3 +94,26 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+
+
+def sign_up(username)
+  visit new_user_url
+  fill_in 'Username', with: username
+  fill_in 'Password', with: "theexplorer"
+  click_on 'Create User'
+end
+
+def make_goal(options = {
+  private: false,
+  completed: false,
+  title: "My goal title",
+  details: "My goal details"
+  })
+  visit new_goal_url
+  fill_in 'Title', with: options[:title]
+  fill_in 'Details', with: options[:details]
+  check('Private?') if options[:private] == true
+  check('Completed') if options[:completed] == true
+  click_on 'New Goal'
+end
